@@ -17,6 +17,7 @@ public class Character {
     private String url;
     private String created;
 
+
     public int getId() {
         return id;
     }
