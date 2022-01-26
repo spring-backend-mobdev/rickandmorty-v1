@@ -11,6 +11,7 @@ public class Location {
     private String url;
     private String created;
 
+
     public int getId() {
         return id;
 

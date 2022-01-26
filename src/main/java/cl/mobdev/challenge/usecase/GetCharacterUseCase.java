@@ -1,6 +1,7 @@
 package cl.mobdev.challenge.usecase;
 
 import cl.mobdev.challenge.domain.request.Character;
+import cl.mobdev.challenge.domain.response.CharacterResponse;
 import cl.mobdev.challenge.gateway.RickAndMortyGateway;
 import org.springframework.stereotype.Component;
 
@@ -14,7 +15,6 @@ public class GetCharacterUseCase {
         this.rickAndMortyGateway = rickAndMortyGateway;
         this.characterRequest = characterRequest;
     }
-
 
     public java.lang.Character execute(String id) {
         // Devolver un Character pero si esta Muerto lanzar una Exception

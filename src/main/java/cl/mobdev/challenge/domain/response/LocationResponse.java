@@ -4,7 +4,6 @@ import java.util.ArrayList;
 
 public class LocationResponse {
 
-
     private String name;
     private String url;
     private String dimension;

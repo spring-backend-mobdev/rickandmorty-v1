@@ -1,6 +1,6 @@
 package cl.mobdev.challenge.gateway;
 
-import cl.mobdev.challenge.controllers.mapper.CharacterMapper;
+import cl.mobdev.challenge.controller.mapper.CharacterMapper;
 import cl.mobdev.challenge.domain.request.Character;
 import cl.mobdev.challenge.domain.request.Location;
 import cl.mobdev.challenge.domain.response.CharacterResponse;

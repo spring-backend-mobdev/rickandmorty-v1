@@ -67,8 +67,4 @@ public class CharacterResponse {
     public void setOrigin(LocationResponse origin) {
         this.origin = origin;
     }
-
-    public Collection<Object> getEpisode(Integer episode_count) {
-        this.episode_count = episode_count;
-    }
 }

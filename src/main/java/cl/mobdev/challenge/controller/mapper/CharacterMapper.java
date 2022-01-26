@@ -1,8 +1,10 @@
-package cl.mobdev.challenge.controllers.mapper;
+package cl.mobdev.challenge.controller.mapper;
 
 import cl.mobdev.challenge.domain.response.CharacterResponse;
 import cl.mobdev.challenge.domain.response.LocationResponse;
+import org.springframework.stereotype.Service;
 
+@Service
 public class CharacterMapper {
 
     public CharacterResponse characterMapper(CharacterResponse character) {
@@ -23,9 +25,7 @@ public class CharacterMapper {
     locationResponse.setDimension(locationResponse.getDimension());
     locationResponse.setResidents(locationResponse.getResidents());
 
-
     return characterMapper;
-}
 
-
+    }
 }
