@@ -1,3 +1,3 @@
-# Challenge Rock And Morty
+# Challenge Rick And Morty
 
-## 
+## Código logrado
