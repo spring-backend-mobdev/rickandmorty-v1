@@ -16,10 +16,11 @@ public class GetCharacterUseCase {
   public Character execute(String id) {
     Character character = rickAndMortyGateway.getCharacter(id);
 
-    // Devolver un Character pero si esta Muerto lanzar una Exception
+    // Lanzar una excepcion cuando el character tiene status "Dead"
     if ("Dead".equals(character.getStatus())) {
       throw new DeadException("El personaje está muerto !!!");
     }
+
     return character;
   }
 }
