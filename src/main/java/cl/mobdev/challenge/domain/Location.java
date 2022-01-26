@@ -1,8 +1,8 @@
-package cl.mobdev.challenge.domain.response;
+package cl.mobdev.challenge.domain;
 
 import java.util.ArrayList;
 
-public class LocationResponse {
+public class Location {
 
     private String name;
     private String url;

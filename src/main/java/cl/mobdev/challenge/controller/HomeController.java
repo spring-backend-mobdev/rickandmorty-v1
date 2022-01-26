@@ -1,7 +1,7 @@
 package cl.mobdev.challenge.controller;
 
-import cl.mobdev.challenge.domain.response.CharacterResponse;
-import cl.mobdev.challenge.gateway.RickAndMortyGateway;
+import cl.mobdev.challenge.controller.mapper.CharacterToCharacterResponseMapper;
+import cl.mobdev.challenge.domain.Character;
 import cl.mobdev.challenge.usecase.GetCharacterUseCase;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -10,21 +10,19 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class HomeController {
 
-    private final RickAndMortyGateway rickAndMortyGateway;
-    private final GetCharacterUseCase getCharacterUseCase;
-    private final GetLocationUseCase getLocationUseCase;
+  private final GetCharacterUseCase getCharacterUseCase;
+  private final CharacterToCharacterResponseMapper mapperToResponse;
 
-    public HomeController(RickAndMortyGateway rickAndMortyGateway, GetCharacterUseCase getCharacterUseCase, GetLocationUseCase getLocationUseCase) {
-        this.rickAndMortyGateway = rickAndMortyGateway;
-        this.getCharacterUseCase = getCharacterUseCase;
-        this.getLocationUseCase = getLocationUseCase;
-    }
+  public HomeController(GetCharacterUseCase getCharacterUseCase,
+                        CharacterToCharacterResponseMapper mapperToResponse) {
+    this.getCharacterUseCase = getCharacterUseCase;
+    this.mapperToResponse = mapperToResponse;
+  }
 
 
-    @GetMapping("/character/{id}")
-    public CharacterResponse getCharacter(@PathVariable String id) {
-        getCharacterUseCase.execute(id);
-        //getLocationUseCase.execute(character);
-        return rickAndMortyGateway.getCharacter(id);
-    }
+  @GetMapping("/character/{id}")
+  public Character getCharacter(@PathVariable String id) {
+    Character character = getCharacterUseCase.execute(id);
+    return character;
+  }
 }

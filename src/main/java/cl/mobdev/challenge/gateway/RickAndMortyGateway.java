@@ -1,9 +1,9 @@
 package cl.mobdev.challenge.gateway;
 
-import cl.mobdev.challenge.controller.mapper.CharacterMapper;
-import cl.mobdev.challenge.domain.request.Character;
-import cl.mobdev.challenge.domain.request.Location;
-import cl.mobdev.challenge.domain.response.CharacterResponse;
+import cl.mobdev.challenge.domain.Character;
+import cl.mobdev.challenge.gateway.mapper.APIResponseToCharacterMapper;
+import cl.mobdev.challenge.gateway.model.ApiCharacter;
+import cl.mobdev.challenge.gateway.model.ApiLocation;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
@@ -11,26 +11,26 @@ import org.springframework.web.client.RestTemplate;
 @Component
 public class RickAndMortyGateway {
 
-    private final String characterUrl;
+  private final String characterUrl;
+  private final RestTemplate restTemplate;
+  private final APIResponseToCharacterMapper mapperToCharacter;
 
-    private final RestTemplate restTemplate;
-    private final CharacterMapper characterToCharacterResponseMapper = new CharacterMapper();
+  public RickAndMortyGateway(@Value("${urlApi}") String characterUrl,
+                             RestTemplate restTemplate,
+                             APIResponseToCharacterMapper mapperToCharacter) {
+    this.characterUrl = characterUrl;
+    this.restTemplate = restTemplate;
+    this.mapperToCharacter = mapperToCharacter;
+  }
 
-    public RickAndMortyGateway(@Value("${urlApi}") String characterUrl, RestTemplate restTemplate) {
-        this.characterUrl = characterUrl;
-        this.restTemplate = restTemplate;
+  public Character getCharacter(String id) {
+    ApiLocation apiLocation = null;
+    ApiCharacter apiCharacter = restTemplate.getForObject(characterUrl + id, ApiCharacter.class);
+
+    if (null != apiCharacter.getOrigin() && !"".equals(apiCharacter.getOrigin().getUrl())) {
+      apiLocation = restTemplate.getForObject(apiCharacter.getOrigin().getUrl(), ApiLocation.class);
     }
 
-
-    public CharacterResponse getCharacter(String id) {
-
-        CharacterMapper characterMapper = new CharacterMapper();
-        Location location = new Location();
-        Character character = restTemplate.getForObject(characterUrl + id, Character.class);
-
-        if (null != character.getOrigin() && !"".equals(character.getOrigin().getUrl())) {
-            location = restTemplate.getForObject(character.getOrigin().getUrl(), Location.class);
-        }
-        return characterMapper(character, location);
-    }
+    return mapperToCharacter.mapper(apiCharacter, apiLocation);
+  }
 }
