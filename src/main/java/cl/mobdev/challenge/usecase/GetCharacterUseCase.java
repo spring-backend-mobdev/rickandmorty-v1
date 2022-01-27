@@ -4,6 +4,14 @@ import cl.mobdev.challenge.domain.Character;
 import cl.mobdev.challenge.gateway.RickAndMortyGateway;
 import org.springframework.stereotype.Component;
 
+// Test
+// 1.-
+// 2.-
+// 3.-
+// 4.-
+// 5.-
+// 6.-
+
 @Component
 public class GetCharacterUseCase {
 
@@ -18,9 +26,9 @@ public class GetCharacterUseCase {
 
     // Lanzar una excepcion cuando el character tiene status "Dead"
     if ("Dead".equals(character.getStatus())) {
-      throw new DeadException("El personaje está muerto !!!");
+      throw new DeadException("El personaje está muerto");
     }
 
-    return character;
+    return rickAndMortyGateway.getCharacter(id);
   }
 }

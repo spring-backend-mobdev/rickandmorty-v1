@@ -1,6 +1,13 @@
 package cl.mobdev.challenge.gateway.model;
 
 import java.util.ArrayList;
+// Test
+// 1.-
+// 2.-
+// 3.-
+// 4.-
+// 5.-
+// 6.-
 
 public class ApiLocation {
 

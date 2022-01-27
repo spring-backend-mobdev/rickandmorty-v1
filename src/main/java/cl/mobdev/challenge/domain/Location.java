@@ -1,7 +1,13 @@
 package cl.mobdev.challenge.domain;
 
 import java.util.ArrayList;
-
+// Test
+// 1.-
+// 2.-
+// 3.-
+// 4.-
+// 5.-
+// 6.-
 public class Location {
 
     private String name;

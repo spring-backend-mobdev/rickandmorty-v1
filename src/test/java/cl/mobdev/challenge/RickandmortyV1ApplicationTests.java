@@ -8,6 +8,6 @@ class RickandmortyV1ApplicationTests {
 
 	@Test
 	void contextLoads() {
-	}
 
+	}
 }

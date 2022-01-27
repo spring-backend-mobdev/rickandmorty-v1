@@ -5,3 +5,10 @@ public class DeadException extends RuntimeException {
         super(message);
     }
 }
+// Test
+// 1.-
+// 2.-
+// 3.-
+// 4.-
+// 5.-
+// 6.-

@@ -1,5 +1,11 @@
 package cl.mobdev.challenge.domain;
-
+// Test
+// 1.-
+// 2.-
+// 3.-
+// 4.-
+// 5.-
+// 6.-
 public class Character {
 
   private int id;
@@ -9,6 +15,7 @@ public class Character {
   private String type;
   private Integer episode_count;
   private Location origin;
+
 
   public int getId() {
     return id;

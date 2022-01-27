@@ -1,7 +1,13 @@
 package cl.mobdev.challenge.gateway.model;
 
 import java.util.ArrayList;
-
+// Test
+// 1.- Testear nombre de cada personaje por id (Rick Sanchez = Id 1)
+// 2.- Testear nombre indistinamente May. o Min.
+// 3.-
+// 4.-
+// 5.-
+// 6.-
 public class ApiCharacter {
 
   private int id;
